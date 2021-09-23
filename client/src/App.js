@@ -4,8 +4,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LandingPage from "./components/LandingPage";
 import RedirectAfter from "./components/redirectAfter";
 import NotFound from "./components/NotFound";
-import Buttons from "./components/buttons";
-import EditPage from "./components/EditPage";
 
 const App = () => {
   return (
@@ -21,9 +19,7 @@ const App = () => {
           <Route path="/share/:id">
             <RedirectAfter />
           </Route>
-          <Route path="/edit/:id">
-            <EditPage />
-          </Route>
+
           <Route>
             <NotFound />
           </Route>

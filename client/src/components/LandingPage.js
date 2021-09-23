@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Redirect, useHistory, useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import Importer from "../api/apiFunctions.js";
-import Buttons from "./buttons.js";
 
 const LandingPage = () => {
   const { id } = useParams();
