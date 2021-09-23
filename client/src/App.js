@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import LandingPage from "./components/LandingPage";
+import RedirectAfter from "./components/redirectAfter";
+import NotFound from "./components/NotFound";
+import Buttons from "./components/buttons";
+import EditPage from "./components/EditPage";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router forceRefresh={true}>
+      <div className="App">
+        <Switch>
+          <Route path="/" exact>
+            <LandingPage />
+          </Route>
+          <Route path="/:id" exact>
+            <LandingPage />
+          </Route>
+          <Route path="/share/:id">
+            <RedirectAfter />
+          </Route>
+          <Route path="/edit/:id">
+            <EditPage />
+          </Route>
+          <Route>
+            <NotFound />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;

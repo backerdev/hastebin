@@ -6,15 +6,18 @@ class controller {
     res.send(data);
   }
   async postData(req, res) {
+    console.log("post data");
     const recivedData = req.body.data;
+    const recivedCount = req.body.count;
     try {
       const newDataModel = new dataModel({
         data: recivedData,
+        count: recivedCount,
       });
       newDataModel.save();
 
-      const data = await dataModel.find();
-      res.redirect(`/${newDataModel._id}`);
+      res.send(newDataModel._id);
+      console.log("backend: " + newDataModel._id);
     } catch (error) {
       console.error(error);
     }
@@ -36,14 +39,16 @@ class controller {
   async duplicateData(req, res) {
     const id = req.params.id;
     const dataRecieved = req.body.data;
+    const countRecieved = req.body.count;
     try {
       if (id) {
-        const getData = await dataModel.findByIdAndUpdate(id, {
+        const newData = await dataModel.findByIdAndUpdate(id, {
           data: dataRecieved,
+          count: countRecieved,
         });
 
-        const data = await dataModel.find();
-        res.send(data);
+        console.log(`server : ${newData}`);
+        res.send(newData);
       } else {
         res.send("no id found");
       }
@@ -57,7 +62,6 @@ class controller {
       if (id) {
         await dataModel.findByIdAndDelete(id);
         const data = await dataModel.find();
-        res.send(data);
       } else {
         res.send("id not match");
       }

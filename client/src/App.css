@@ -1,38 +1,110 @@
+* {
+  margin: 0;
+
+  box-sizing: border-box;
+  background: #002b36;
+  color: #839496;
+  font-size: 1rem;
+}
+pre {
+  margin: 0;
+}
+code {
+  padding-top: 0;
+  padding-bottom: 0;
+}
 .App {
-  text-align: center;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  min-width: 850px;
+}
+.landingPage > form > textarea {
+  resize: none;
+  width: 100vw;
+  height: 100vh;
+  border: none;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+form {
+  display: flex;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.landingPage > form > textarea:focus {
+  outline: none;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.landingPage {
+  display: flex;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.landingPage .counter {
+  min-width: 28px;
   display: flex;
   flex-direction: column;
+
+  align-self: start;
+  border: none;
+}
+span {
+  text-align: right;
+  padding-top: 1px;
+  margin-right: 5px;
+}
+.landingPage button {
+}
+.RedirectPage {
+  display: flex;
+}
+.RedirectPage > div {
+  display: flex;
+  flex-direction: column;
+}
+.Btns_container {
+  background: transparent;
+  width: 200px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  border: 2px solid #839496;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-right: 50px;
+  opacity: 0.5;
+  transition: opacity ease-in-out 0.5s;
 }
-
-.App-link {
-  color: #61dafb;
+.Btns_container:hover {
+  opacity: 1;
+  background: #002b36;
+  transition: opacity ease-in-out 0.5s;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Btns_container > h2 {
+  font-size: 2em;
+  margin: 20px 0;
+}
+.Btns_container > div button {
+  margin: 0 5px;
+  width: 150px;
+  height: 75px;
+  padding: 2.5px;
+  cursor: pointer;
+  border: none;
+}
+.btns-group {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+  width: 150px;
+}
+.Btns_container > div button:hover {
+  color: #eeeeee;
+  font-size: larger;
+  font-weight: bold;
+}
+.RedirectPage {
+  padding-top: 20px;
+  padding-left: 20px;
 }

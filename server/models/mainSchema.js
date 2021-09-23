@@ -4,6 +4,9 @@ const dataSchema = new mongoose.Schema({
   data: {
     type: String,
   },
+  count: {
+    type: Number,
+  },
 });
 
 const dataModel = mongoose.model("dataModel", dataSchema);
